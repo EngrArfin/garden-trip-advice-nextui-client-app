@@ -16,15 +16,8 @@ import NextLink from "next/link";
 import clsx from "clsx";
 
 import { siteConfig } from "@/src/config/site";
-import { ThemeSwitch } from "@/src/components/theme-switch";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchIcon,
-  Logo,
-} from "@/src/components/icons";
+import { ThemeSwitch } from "@/src/components/UI/theme-switch";
+import { SearchIcon, Logo } from "@/src/components/icons";
 
 export const Navbar = () => {
   const searchInput = (
@@ -80,9 +73,13 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
+          <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
           <ThemeSwitch />
+          {/* <Button>Login</Button> */}
+          <NextLink href="/login" passHref>
+            <Button as="a">Login</Button>
+          </NextLink>
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
